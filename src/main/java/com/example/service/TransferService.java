@@ -21,9 +21,9 @@ public class TransferService {
     @Transactional
     public void transferMoney(long idSender, long idReceiver, BigDecimal amount) {
         Account sender = accountRepository.findById(idSender)
-                .orElseThrow(() -> new AccountNotFoundException());
+                .orElseThrow(AccountNotFoundException::new);
         Account receiver = accountRepository.findById(idReceiver)
-                .orElseThrow(() -> new AccountNotFoundException());
+                .orElseThrow(AccountNotFoundException::new);
 
         if (amount.compareTo(sender.getAmount()) > 0) {
             throw new NotEnoughMoneyException();
