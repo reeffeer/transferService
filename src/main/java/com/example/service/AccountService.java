@@ -19,6 +19,6 @@ public class AccountService {
     }
 
     public List<Account> findAccountsByName(String name) {
-
+        return accountRepository.findAccountsByName(name);
     }
 }
