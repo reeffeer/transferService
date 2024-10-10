@@ -3,6 +3,7 @@ package com.example;
 import com.example.model.Account;
 import com.example.repository.AccountRepository;
 import com.example.service.TransferService;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -24,6 +25,7 @@ public class TransferServiceIntegrationTests {
     @Autowired
     private TransferService transferService;
 
+    @Test
     void transferServiceTransferAmountTest() {
         sender.setId(1);
         sender.setAmount(new BigDecimal(1000));
